@@ -1152,9 +1152,316 @@
       .pulse-dot, #vessel-ripple, .status-dot, .radar-sweep-box::after {
         animation: none !important;
       }
-      #ambient-canvas {
-        display: none !important;
-      }
+    /* ==========================================================================
+       CONFIDENTIAL SECURITY GATEWAY & ZERO-KNOWLEDGE CYBER TERMINAL
+       ========================================================================== */
+    .security-gate-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 9999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 30%, #08162d 0%, #030a17 55%, #01040a 100%);
+      padding: 1.5rem;
+      overflow-y: auto;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .security-gate-backdrop.hidden-gate {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .security-terminal-card {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+      background: rgba(8, 22, 46, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 242, 255, 0.35);
+      border-radius: 16px;
+      box-shadow: 0 0 50px rgba(0, 242, 255, 0.15), 0 30px 60px rgba(0, 0, 0, 0.85);
+      padding: 2.25rem;
+      color: var(--text-main);
+      overflow: hidden;
+    }
+
+    .security-terminal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #00f2ff, #00d2c4, transparent);
+      animation: scan-bar 3s infinite linear;
+    }
+
+    @keyframes scan-bar {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .terminal-header {
+      margin-bottom: 1.75rem;
+      text-align: left;
+    }
+
+    .terminal-brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .terminal-logo {
+      height: 22px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.3));
+    }
+
+    .terminal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #ef4444;
+      text-transform: uppercase;
+    }
+
+    .terminal-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .terminal-subtitle {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .gate-field-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .gate-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--cyan-primary);
+      margin-bottom: 0.45rem;
+      letter-spacing: 0.04em;
+    }
+
+    .gate-label-badge {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      background: rgba(0, 242, 255, 0.08);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 242, 255, 0.18);
+    }
+
+    .gate-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .gate-input-icon {
+      position: absolute;
+      left: 14px;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .gate-input {
+      width: 100%;
+      background: rgba(3, 8, 20, 0.85);
+      border: 1px solid rgba(0, 242, 255, 0.22);
+      border-radius: 8px;
+      padding: 0.75rem 1rem 0.75rem 2.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: #fff;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .gate-input:focus {
+      border-color: var(--cyan-primary);
+      box-shadow: 0 0 15px rgba(0, 242, 255, 0.25);
+      background: rgba(4, 12, 28, 0.95);
+    }
+
+    .gate-input::placeholder {
+      color: #475569;
+      font-size: 0.82rem;
+    }
+
+    .gate-pwd-toggle {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+
+    .gate-pwd-toggle:hover {
+      color: var(--cyan-primary);
+    }
+
+    .gate-field-hint {
+      font-size: 0.73rem;
+      color: var(--text-dim);
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+
+    .gate-terminal-screen {
+      background: #01040a;
+      border: 1px solid rgba(0, 242, 255, 0.2);
+      border-radius: 6px;
+      padding: 0.65rem 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      margin: 1.25rem 0;
+      color: #94a3b8;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+    }
+
+    .gate-terminal-screen .console-prompt {
+      color: var(--cyan-primary);
+      margin-right: 0.5rem;
+      font-weight: 700;
+    }
+
+    .gate-terminal-screen.status-error {
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.08);
+      color: #fca5a5;
+    }
+
+    .gate-terminal-screen.status-success {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.08);
+      color: #6ee7b7;
+    }
+
+    .gate-submit-btn {
+      width: 100%;
+      padding: 0.9rem 1.5rem;
+      background: linear-gradient(135deg, #00d2c4 0%, #00b4d8 50%, #0077b6 100%);
+      color: #030712;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 18px rgba(0, 242, 255, 0.35);
+    }
+
+    .gate-submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 242, 255, 0.5);
+      filter: brightness(1.08);
+    }
+
+    .gate-submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      filter: grayscale(0.6);
+    }
+
+    .terminal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-dim);
+    }
+
+    .card-shake {
+      animation: terminal-shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    @keyframes terminal-shake {
+      10%, 90% { transform: translate3d(-2px, 0, 0); }
+      20%, 80% { transform: translate3d(3px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+      40%, 60% { transform: translate3d(4px, 0, 0); }
+    }
+
+    .auth-user-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(0, 242, 255, 0.08);
+      border: 1px solid rgba(0, 242, 255, 0.25);
+      padding: 0.3rem 0.7rem;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+    }
+
+    .auth-email-text {
+      color: var(--cyan-primary);
+      max-width: 140px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .auth-lock-btn {
+      background: none;
+      border: none;
+      color: #ef4444;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .auth-lock-btn:hover {
+      background: rgba(239, 68, 68, 0.15);
     }
   </style>
 </head>
@@ -1208,6 +1515,88 @@
   </script>
 
   <!-- ==========================================================================
+       CONFIDENTIAL SECURITY GATEWAY & ZERO-KNOWLEDGE CYBER ACCESS TERMINAL
+       ========================================================================== -->
+  <div id="security-gate-container" class="security-gate-backdrop">
+    <div class="security-terminal-card">
+      
+      <!-- Terminal Header & Branding -->
+      <div class="terminal-header">
+        <div class="terminal-brand-row">
+          <img src="assets/btrac_solutions_logo_cropped.png" alt="b-Trac Solutions" class="terminal-logo">
+          <span class="terminal-badge">RESTRICTED ACCESS // LEVEL-3 CLEARANCE</span>
+        </div>
+        <h2 class="terminal-title">SeaLink™ Project Proposal</h2>
+        <p class="terminal-subtitle">Internal concept evaluation for connected vessel tracking & maritime IoT in the Bay of Bengal. Corporate identity and internal secret challenge verification required.</p>
+      </div>
+
+      <!-- Security Clearance Form -->
+      <form id="security-gate-form" onsubmit="handleSecuritySubmit(event)">
+        <!-- Field 1: Corporate Email -->
+        <div class="gate-field-group">
+          <label for="gate-email" class="gate-label">
+            <span>01. CORPORATE IDENTITY</span>
+            <span class="gate-label-badge" id="email-badge">AUTHORIZED PERSONNEL</span>
+          </label>
+          <div class="gate-input-wrapper">
+            <span class="gate-input-icon">📧</span>
+            <input type="email" id="gate-email" class="gate-input" placeholder="Enter corporate email address" required autocomplete="email">
+          </div>
+          <p class="gate-field-hint">Access is restricted exclusively to authorized organization accounts.</p>
+        </div>
+
+        <!-- Field 2: 1st Floor Wi-Fi SSID -->
+        <div class="gate-field-group">
+          <label for="gate-ssid" class="gate-label">
+            <span>02. INTERNAL CHALLENGE // 1ST FLOOR WI-FI NETWORK</span>
+            <span class="gate-label-badge">SSID</span>
+          </label>
+          <div class="gate-input-wrapper">
+            <span class="gate-input-icon">📶</span>
+            <input type="text" id="gate-ssid" class="gate-input" placeholder="Enter 1st floor Wi-Fi SSID" required autocomplete="off">
+          </div>
+          <p class="gate-field-hint">Specify the wireless network name (SSID) deployed on the 1st floor office.</p>
+        </div>
+
+        <!-- Field 3: 1st Floor Wi-Fi Password -->
+        <div class="gate-field-group">
+          <label for="gate-password" class="gate-label">
+            <span>03. SECURITY KEY // 1ST FLOOR WI-FI PASSWORD</span>
+            <span class="gate-label-badge">ENCRYPTED</span>
+          </label>
+          <div class="gate-input-wrapper">
+            <span class="gate-input-icon">🔑</span>
+            <input type="password" id="gate-password" class="gate-input" placeholder="Enter Wi-Fi security key" required autocomplete="off">
+            <button type="button" class="gate-pwd-toggle" onclick="toggleGatePassword()" aria-label="Toggle password visibility" id="pwd-toggle-btn">👁️</button>
+          </div>
+          <p class="gate-field-hint">Validated via Salted SHA-256 Web Cryptography. Plaintext is never transmitted or stored.</p>
+        </div>
+
+        <!-- Diagnostics Console Screen -->
+        <div class="gate-terminal-screen" id="gate-console">
+          <span class="console-prompt">&gt;</span>
+          <span id="gate-status-text">SECURE GATEWAY ARMED. AWAITING CREDENTIALS...</span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="gate-submit-btn" class="gate-submit-btn">
+          <span id="gate-btn-icon">🔒</span>
+          <span id="gate-btn-text">AUTHENTICATE &amp; UNLOCK PRESENTATION</span>
+        </button>
+      </form>
+
+      <div class="terminal-footer">
+        <span>🛡️ Salted SHA-256 Zero-Knowledge Verification</span>
+        <span>•</span>
+        <span>b-Trac Solutions Ltd.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Application Wrapper (Restricted DOM) -->
+  <div id="sealink-app-root" style="display: none; opacity: 0; transition: opacity 0.5s ease-in-out;">
+
+  <!-- ==========================================================================
        NAVIGATION COMMAND BAR
        ========================================================================== -->
   <header id="top-nav">
@@ -1234,6 +1623,13 @@
 
       <!-- Executive & Pitch Controls -->
       <div class="nav-controls">
+
+        <!-- Corporate Auth Status & Lock Button -->
+        <div id="auth-status-badge" class="auth-user-badge" style="display: none;">
+          <span class="status-dot" style="background-color: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+          <span id="auth-user-display" class="auth-email-text">Staff</span>
+          <button onclick="lockPortal()" class="auth-lock-btn" title="Lock Portal &amp; Clear Session" aria-label="Lock security gate">🔒 Lock</button>
+        </div>
 
         <button id="pres-mode-btn" class="ctrl-toggle-btn" onclick="togglePresentationMode()" title="Toggle presentation slides mode with keyboard arrow keys" aria-label="Toggle full-screen presentation mode">
           📽️ Presentation
@@ -3365,6 +3761,7 @@
       </div>
     </div>
   </div>
+  </div> <!-- /#sealink-app-root -->
 
   <!-- ==========================================================================
        JAVASCRIPT SCRIPTS & FREE MAP ENGINE
@@ -4208,10 +4605,230 @@
     });
 
     /* ==========================================================================
-       13. GSAP SCROLLTRIGGER REVEAL ANIMATIONS
+       13. CONFIDENTIAL SECURITY GATEWAY & WEBCRYPTO VERIFICATION
+       ========================================================================== */
+    const GATE_HASH_TARGET = '121418ff083d1fd95c4a0cacb06f0047c085b07c24c2350d64a3977b851b5123';
+    const GATE_SALT = 'btrac_sealink_sec_gate_2026_q1';
+    const DOMAIN_HASH_TARGET = '6af9dc6824037ad6c18f36387a49df85cfe7e9192c4b7d46ba5a9958952a8f97';
+    const DOMAIN_SALT = 'btrac_domain_salt_2026';
+    let failedGateAttempts = 0;
+    let gateLockoutUntil = 0;
+    let lockoutTimerInterval = null;
+
+    async function verifyCorporateDomain(emailStr) {
+      const atIdx = emailStr.lastIndexOf('@');
+      if (atIdx === -1 || atIdx === 0 || atIdx === emailStr.length - 1) return false;
+      const domain = emailStr.slice(atIdx + 1).trim().toLowerCase();
+      const raw = `${domain}:${DOMAIN_SALT}`;
+      const data = new TextEncoder().encode(raw);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hash = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+      return hash === DOMAIN_HASH_TARGET;
+    }
+
+    async function computeSecurityHash(ssid, password) {
+      const normalizedSSID = ssid.trim().toUpperCase();
+      const normalizedPassword = password.trim();
+      const rawPayload = `${normalizedSSID}:${normalizedPassword}:${GATE_SALT}`;
+      const encoder = new TextEncoder();
+      const data = encoder.encode(rawPayload);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function toggleGatePassword() {
+      const pwdInput = document.getElementById('gate-password');
+      const toggleBtn = document.getElementById('pwd-toggle-btn');
+      if (!pwdInput) return;
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        if (toggleBtn) toggleBtn.textContent = '🔒';
+      } else {
+        pwdInput.type = 'password';
+        if (toggleBtn) toggleBtn.textContent = '👁️';
+      }
+    }
+
+    function setGateConsole(message, type = 'normal') {
+      const screen = document.getElementById('gate-console');
+      const textSpan = document.getElementById('gate-status-text');
+      if (!screen || !textSpan) return;
+      screen.className = 'gate-terminal-screen';
+      if (type === 'error') screen.classList.add('status-error');
+      if (type === 'success') screen.classList.add('status-success');
+      textSpan.textContent = message;
+    }
+
+    function triggerGateShake() {
+      const card = document.querySelector('.security-terminal-card');
+      if (card) {
+        card.classList.remove('card-shake');
+        void card.offsetWidth;
+        card.classList.add('card-shake');
+      }
+    }
+
+    function startGateLockout(seconds = 60) {
+      gateLockoutUntil = Date.now() + (seconds * 1000);
+      const submitBtn = document.getElementById('gate-submit-btn');
+      if (submitBtn) submitBtn.disabled = true;
+
+      clearInterval(lockoutTimerInterval);
+      lockoutTimerInterval = setInterval(() => {
+        const remaining = Math.ceil((gateLockoutUntil - Date.now()) / 1000);
+        if (remaining <= 0) {
+          clearInterval(lockoutTimerInterval);
+          gateLockoutUntil = 0;
+          failedGateAttempts = 0;
+          if (submitBtn) submitBtn.disabled = false;
+          setGateConsole('LOCKOUT EXPIRED. YOU MAY RETRY CREDENTIALS.');
+        } else {
+          setGateConsole(`SYSTEM RATE-LIMITED: 5 FAILED ATTEMPTS. RETRY IN ${remaining}s...`, 'error');
+        }
+      }, 1000);
+    }
+
+    async function handleSecuritySubmit(e) {
+      if (e) e.preventDefault();
+
+      if (Date.now() < gateLockoutUntil) {
+        const remaining = Math.ceil((gateLockoutUntil - Date.now()) / 1000);
+        setGateConsole(`SYSTEM LOCKED. PLEASE WAIT ${remaining} SECONDS.`, 'error');
+        playBeep(220, 0.2, 'sawtooth', 0.1);
+        triggerGateShake();
+        return;
+      }
+
+      const emailInput = document.getElementById('gate-email');
+      const ssidInput = document.getElementById('gate-ssid');
+      const pwdInput = document.getElementById('gate-password');
+      const submitBtn = document.getElementById('gate-submit-btn');
+
+      const email = emailInput ? emailInput.value.trim().toLowerCase() : '';
+      const ssid = ssidInput ? ssidInput.value.trim() : '';
+      const pwd = pwdInput ? pwdInput.value.trim() : '';
+
+      // Validate presence of credentials
+      if (!email || !ssid || !pwd) {
+        setGateConsole('ACCESS DENIED: ALL CREDENTIAL FIELDS ARE REQUIRED.', 'error');
+        playBeep(220, 0.2, 'sawtooth', 0.1);
+        triggerGateShake();
+        return;
+      }
+
+      setGateConsole('COMPUTING CRYPTOGRAPHIC DIGEST & VERIFYING CLEARANCE...', 'normal');
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const [isDomainValid, computedHash] = await Promise.all([
+          verifyCorporateDomain(email),
+          computeSecurityHash(ssid, pwd)
+        ]);
+
+        if (isDomainValid && computedHash === GATE_HASH_TARGET) {
+          // Success!
+          setGateConsole('AUTHENTICATION SUCCESSFUL // ACCESS GRANTED.', 'success');
+          playBeep(880, 0.1, 'sine', 0.08);
+          setTimeout(() => playBeep(1320, 0.18, 'triangle', 0.08), 110);
+
+          // Save session
+          sessionStorage.setItem('sealink_auth_session', 'authenticated_v1');
+          sessionStorage.setItem('sealink_user_email', email);
+
+          setTimeout(() => {
+            unlockPortal(email);
+          }, 450);
+        } else {
+          // Unified failure with ZERO clues about which field failed
+          failedGateAttempts++;
+          playBeep(220, 0.25, 'sawtooth', 0.1);
+          triggerGateShake();
+
+          if (failedGateAttempts >= 5) {
+            startGateLockout(60);
+          } else {
+            const attemptsLeft = 5 - failedGateAttempts;
+            setGateConsole(`ACCESS DENIED: INVALID OR UNAUTHORIZED CREDENTIALS (${attemptsLeft} ATTEMPTS REMAINING).`, 'error');
+            if (submitBtn) submitBtn.disabled = false;
+          }
+        }
+      } catch (err) {
+        console.error('Crypto error:', err);
+        setGateConsole('CRYPTOGRAPHIC MODULE ERROR. CHECK BROWSER COMPATIBILITY.', 'error');
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    }
+
+    function unlockPortal(email) {
+      const gate = document.getElementById('security-gate-container');
+      const root = document.getElementById('sealink-app-root');
+      const authBadge = document.getElementById('auth-status-badge');
+      const userDisplay = document.getElementById('auth-user-display');
+
+      if (gate) {
+        gate.classList.add('hidden-gate');
+        setTimeout(() => {
+          gate.style.display = 'none';
+        }, 400);
+      }
+
+      if (root) {
+        root.style.display = 'block';
+        void root.offsetWidth;
+        root.style.opacity = '1';
+      }
+
+      if (authBadge && userDisplay) {
+        userDisplay.textContent = email || 'b-Trac Staff';
+        userDisplay.title = email || 'Authorized b-Trac Account';
+        authBadge.style.display = 'inline-flex';
+      }
+
+      // Initialize tactical map and animations
+      initTacticalMap();
+      if (typeof map !== 'undefined' && map && map.invalidateSize) {
+        setTimeout(() => map.invalidateSize(), 200);
+      }
+
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    }
+
+    function lockPortal() {
+      sessionStorage.removeItem('sealink_auth_session');
+      sessionStorage.removeItem('sealink_user_email');
+      window.location.reload();
+    }
+
+    function checkAuthSessionOnLoad() {
+      const isAuth = sessionStorage.getItem('sealink_auth_session');
+      const savedEmail = sessionStorage.getItem('sealink_user_email');
+
+      if (isAuth === 'authenticated_v1') {
+        unlockPortal(savedEmail || 'b-Trac Staff');
+      } else {
+        const root = document.getElementById('sealink-app-root');
+        const gate = document.getElementById('security-gate-container');
+        if (root) {
+          root.style.display = 'none';
+          root.style.opacity = '0';
+        }
+        if (gate) {
+          gate.style.display = 'flex';
+          gate.classList.remove('hidden-gate');
+        }
+        const emailInput = document.getElementById('gate-email');
+        if (emailInput) setTimeout(() => emailInput.focus(), 300);
+      }
+    }
+
+    /* ==========================================================================
+       14. GSAP SCROLLTRIGGER REVEAL ANIMATIONS & LIFECYCLE
        ========================================================================== */
     window.addEventListener('DOMContentLoaded', () => {
-      initTacticalMap();
+      checkAuthSessionOnLoad();
 
       if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
