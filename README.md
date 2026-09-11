@@ -1,8 +1,8 @@
 # SeaLink by b-Trac 🌊⚓
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-00f2ff?style=for-the-badge&logo=github)](https://mahadi-ma-ak.github.io/SeaLink/)
-[![Platform](https://img.shields.io/badge/Platform-Maritime_IoT_&_VTS-0b192e?style=for-the-badge&logo=satellite)](https://github.com)
-[![Frontend](https://img.shields.io/badge/Tech-HTML5_|_CSS3_|_ES6+-e34f26?style=for-the-badge&logo=html5)](https://github.com)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-00f2ff?style=for-the-badge&logo=github)](https://squirrelbd.github.io/SeaLink/)
+[![Platform](https://img.shields.io/badge/Platform-Maritime_IoT_&_VTS-0b192e?style=for-the-badge&logo=satellite)](https://github.com/Squirrelbd/SeaLink)
+[![Frontend](https://img.shields.io/badge/Tech-HTML5_|_CSS3_|_ES6+-e34f26?style=for-the-badge&logo=html5)](https://github.com/Squirrelbd/SeaLink)
 [![Maps](https://img.shields.io/badge/Maps-Leaflet_1.9.4-199900?style=for-the-badge&logo=leaflet)](https://leafletjs.com/)
 [![Satellite](https://img.shields.io/badge/Connectivity-Starlink_LEO_Satellite-0052cc?style=for-the-badge)](https://www.starlink.com/)
 
@@ -13,8 +13,7 @@
 
 ## 📌 Live Deployment
 
-🌐 **Live Website**: [https://mahadi-ma-ak.github.io/SeaLink/](https://mahadi-ma-ak.github.io/SeaLink/)  
-*(Replace with your GitHub repository URL if hosted under a different account)*
+🌐 **Live Website**: [https://squirrelbd.github.io/SeaLink/](https://squirrelbd.github.io/SeaLink/)
 
 ---
 
@@ -148,17 +147,17 @@ Install the **Live Server** extension, right-click `index.html`, and select **Op
 ---
 
 ## 🌐 Hosting on GitHub Pages
-
+ 
 1. Push this repository to GitHub:
    ```bash
    git branch -M main
-   git remote add origin https://github.com/<your-username>/SeaLink.git
+   git remote add origin https://github.com/Squirrelbd/SeaLink.git
    git push -u origin main
    ```
-2. Navigate to your repository on GitHub.
+2. Navigate to your repository on GitHub: `https://github.com/Squirrelbd/SeaLink`
 3. Go to **Settings** > **Pages** (in the left sidebar).
 4. Under **Build and deployment** > **Branch**, select `main` and `/ (root)`.
-5. Click **Save**. Your site will be published at `https://<your-username>.github.io/SeaLink/` within 1–2 minutes.
+5. Click **Save**. Your site will be published at `https://squirrelbd.github.io/SeaLink/` within 1–2 minutes.
 
 ---
 
