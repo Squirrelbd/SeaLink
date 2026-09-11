@@ -1152,6 +1152,8 @@
       .pulse-dot, #vessel-ripple, .status-dot, .radar-sweep-box::after {
         animation: none !important;
       }
+    }
+
     /* ==========================================================================
        CONFIDENTIAL SECURITY GATEWAY & ZERO-KNOWLEDGE CYBER TERMINAL
        ========================================================================== */
@@ -1162,10 +1164,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 50% 30%, #08162d 0%, #030a17 55%, #01040a 100%);
+      background: radial-gradient(circle at 50% 35%, #081938 0%, #030a18 55%, #01040a 100%);
       padding: 1.5rem;
       overflow-y: auto;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
     }
 
     .security-gate-backdrop.hidden-gate {
@@ -1177,27 +1179,28 @@
     .security-terminal-card {
       position: relative;
       width: 100%;
-      max-width: 540px;
-      background: rgba(8, 22, 46, 0.94);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(0, 242, 255, 0.35);
-      border-radius: 16px;
-      box-shadow: 0 0 50px rgba(0, 242, 255, 0.15), 0 30px 60px rgba(0, 0, 0, 0.85);
+      max-width: 500px;
+      background: linear-gradient(160deg, rgba(8, 22, 48, 0.94) 0%, rgba(3, 10, 24, 0.98) 100%);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(0, 242, 255, 0.3);
+      border-radius: 18px;
+      box-shadow: 0 0 60px rgba(0, 242, 255, 0.14), 0 30px 70px rgba(0, 0, 0, 0.92);
       padding: 2.25rem;
       color: var(--text-main);
       overflow: hidden;
     }
 
+    /* Tactical top ambient light sweep */
     .security-terminal-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 3px;
+      height: 2px;
       background: linear-gradient(90deg, transparent, #00f2ff, #00d2c4, transparent);
-      animation: scan-bar 3s infinite linear;
+      animation: scan-bar 3.5s infinite linear;
     }
 
     @keyframes scan-bar {
@@ -1206,7 +1209,7 @@
     }
 
     .terminal-header {
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
       text-align: left;
     }
 
@@ -1215,49 +1218,49 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.15rem;
       flex-wrap: wrap;
     }
 
     .terminal-logo {
-      height: 22px;
+      height: 24px;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.3));
+      filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.25));
     }
 
     .terminal-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
       padding: 0.25rem 0.65rem;
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.4);
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.35);
       border-radius: 9999px;
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.66rem;
       font-weight: 700;
       letter-spacing: 0.08em;
-      color: #ef4444;
+      color: #f87171;
       text-transform: uppercase;
     }
 
     .terminal-title {
-      font-size: 1.45rem;
+      font-size: 1.38rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
       letter-spacing: -0.02em;
     }
 
     .terminal-subtitle {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .gate-field-group {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.15rem;
     }
 
     .gate-label {
@@ -1267,17 +1270,18 @@
       font-family: var(--font-mono);
       font-size: 0.72rem;
       color: var(--cyan-primary);
-      margin-bottom: 0.45rem;
-      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.03em;
     }
 
     .gate-label-badge {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       color: var(--text-dim);
-      background: rgba(0, 242, 255, 0.08);
-      padding: 0.15rem 0.45rem;
+      background: rgba(0, 242, 255, 0.06);
+      padding: 0.12rem 0.45rem;
       border-radius: 4px;
-      border: 1px solid rgba(0, 242, 255, 0.18);
+      border: 1px solid rgba(0, 242, 255, 0.16);
+      letter-spacing: 0.05em;
     }
 
     .gate-input-wrapper {
@@ -1289,34 +1293,37 @@
     .gate-input-icon {
       position: absolute;
       left: 14px;
-      font-size: 0.95rem;
-      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(0, 242, 255, 0.65);
       pointer-events: none;
       z-index: 2;
     }
 
     .gate-input {
       width: 100%;
-      background: rgba(3, 8, 20, 0.85);
-      border: 1px solid rgba(0, 242, 255, 0.22);
-      border-radius: 8px;
-      padding: 0.75rem 1rem 0.75rem 2.65rem;
+      height: 46px;
+      background: rgba(2, 6, 16, 0.75);
+      border: 1px solid rgba(0, 242, 255, 0.2);
+      border-radius: 10px;
+      padding: 0 1rem 0 2.75rem;
       font-family: var(--font-mono);
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: #fff;
       outline: none;
-      transition: all 0.25s ease;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     }
 
     .gate-input:focus {
       border-color: var(--cyan-primary);
-      box-shadow: 0 0 15px rgba(0, 242, 255, 0.25);
-      background: rgba(4, 12, 28, 0.95);
+      box-shadow: 0 0 18px rgba(0, 242, 255, 0.25), inset 0 0 10px rgba(0, 242, 255, 0.04);
+      background: rgba(3, 10, 24, 0.95);
     }
 
     .gate-input::placeholder {
       color: #475569;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
     }
 
     .gate-pwd-toggle {
@@ -1326,7 +1333,9 @@
       border: none;
       color: var(--text-dim);
       cursor: pointer;
-      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 4px;
       transition: color 0.2s;
     }
@@ -1336,24 +1345,25 @@
     }
 
     .gate-field-hint {
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       color: var(--text-dim);
       margin-top: 0.35rem;
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     .gate-terminal-screen {
       background: #01040a;
-      border: 1px solid rgba(0, 242, 255, 0.2);
-      border-radius: 6px;
-      padding: 0.65rem 0.85rem;
+      border: 1px solid rgba(0, 242, 255, 0.18);
+      border-radius: 8px;
+      padding: 0.7rem 0.9rem;
       font-family: var(--font-mono);
       font-size: 0.74rem;
       margin: 1.25rem 0;
       color: #94a3b8;
-      min-height: 38px;
+      min-height: 42px;
       display: flex;
       align-items: center;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
     }
 
     .gate-terminal-screen .console-prompt {
@@ -1376,27 +1386,27 @@
 
     .gate-submit-btn {
       width: 100%;
-      padding: 0.9rem 1.5rem;
+      height: 48px;
       background: linear-gradient(135deg, #00d2c4 0%, #00b4d8 50%, #0077b6 100%);
       color: #030712;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-family: var(--font-heading);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 18px rgba(0, 242, 255, 0.35);
+      box-shadow: 0 4px 18px rgba(0, 242, 255, 0.32);
     }
 
     .gate-submit-btn:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(0, 242, 255, 0.5);
+      box-shadow: 0 6px 24px rgba(0, 242, 255, 0.48);
       filter: brightness(1.08);
     }
 
@@ -1428,40 +1438,18 @@
       40%, 60% { transform: translate3d(4px, 0, 0); }
     }
 
-    .auth-user-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background: rgba(0, 242, 255, 0.08);
-      border: 1px solid rgba(0, 242, 255, 0.25);
-      padding: 0.3rem 0.7rem;
-      border-radius: 9999px;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
+    .nav-lock-btn {
+      color: #f87171 !important;
+      border-color: rgba(239, 68, 68, 0.35) !important;
+      background: rgba(239, 68, 68, 0.08) !important;
+      transition: all 0.25s ease;
     }
 
-    .auth-email-text {
-      color: var(--cyan-primary);
-      max-width: 140px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .auth-lock-btn {
-      background: none;
-      border: none;
-      color: #ef4444;
-      cursor: pointer;
-      font-size: 0.75rem;
-      font-family: var(--font-mono);
-      padding: 0.1rem 0.3rem;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-
-    .auth-lock-btn:hover {
-      background: rgba(239, 68, 68, 0.15);
+    .nav-lock-btn:hover {
+      background: rgba(239, 68, 68, 0.18) !important;
+      border-color: rgba(239, 68, 68, 0.65) !important;
+      color: #fca5a5 !important;
+      transform: translateY(-1px);
     }
   </style>
 </head>
@@ -1524,10 +1512,10 @@
       <div class="terminal-header">
         <div class="terminal-brand-row">
           <img src="assets/btrac_solutions_logo_cropped.png" alt="b-Trac Solutions" class="terminal-logo">
-          <span class="terminal-badge">RESTRICTED ACCESS // LEVEL-3 CLEARANCE</span>
+          <span class="terminal-badge">RESTRICTED // LEVEL-3 CLEARANCE</span>
         </div>
-        <h2 class="terminal-title">SeaLink™ Project Proposal</h2>
-        <p class="terminal-subtitle">Internal concept evaluation for connected vessel tracking & maritime IoT in the Bay of Bengal. Corporate identity and internal secret challenge verification required.</p>
+        <h2 class="terminal-title">SeaLink™ Platform Clearance</h2>
+        <p class="terminal-subtitle">Internal concept evaluation for deep-sea vessel tracking & maritime IoT. Authorized personnel verification required.</p>
       </div>
 
       <!-- Security Clearance Form -->
@@ -1539,7 +1527,9 @@
             <span class="gate-label-badge" id="email-badge">AUTHORIZED PERSONNEL</span>
           </label>
           <div class="gate-input-wrapper">
-            <span class="gate-input-icon">📧</span>
+            <span class="gate-input-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </span>
             <input type="email" id="gate-email" class="gate-input" placeholder="Enter corporate email address" required autocomplete="email">
           </div>
           <p class="gate-field-hint">Access is restricted exclusively to authorized organization accounts.</p>
@@ -1552,7 +1542,9 @@
             <span class="gate-label-badge">SSID</span>
           </label>
           <div class="gate-input-wrapper">
-            <span class="gate-input-icon">📶</span>
+            <span class="gate-input-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            </span>
             <input type="text" id="gate-ssid" class="gate-input" placeholder="Enter 1st floor Wi-Fi SSID" required autocomplete="off">
           </div>
           <p class="gate-field-hint">Specify the wireless network name (SSID) deployed on the 1st floor office.</p>
@@ -1565,9 +1557,13 @@
             <span class="gate-label-badge">ENCRYPTED</span>
           </label>
           <div class="gate-input-wrapper">
-            <span class="gate-input-icon">🔑</span>
+            <span class="gate-input-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+            </span>
             <input type="password" id="gate-password" class="gate-input" placeholder="Enter Wi-Fi security key" required autocomplete="off">
-            <button type="button" class="gate-pwd-toggle" onclick="toggleGatePassword()" aria-label="Toggle password visibility" id="pwd-toggle-btn">👁️</button>
+            <button type="button" class="gate-pwd-toggle" onclick="toggleGatePassword()" aria-label="Toggle password visibility" id="pwd-toggle-btn">
+              <svg id="eye-svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
           </div>
           <p class="gate-field-hint">Validated via Salted SHA-256 Web Cryptography. Plaintext is never transmitted or stored.</p>
         </div>
@@ -1580,7 +1576,9 @@
 
         <!-- Submit Button -->
         <button type="submit" id="gate-submit-btn" class="gate-submit-btn">
-          <span id="gate-btn-icon">🔒</span>
+          <span id="gate-btn-icon" style="display: flex; align-items: center;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
           <span id="gate-btn-text">AUTHENTICATE &amp; UNLOCK PRESENTATION</span>
         </button>
       </form>
@@ -1624,19 +1622,14 @@
       <!-- Executive & Pitch Controls -->
       <div class="nav-controls">
 
-        <!-- Corporate Auth Status & Lock Button -->
-        <div id="auth-status-badge" class="auth-user-badge" style="display: none;">
-          <span class="status-dot" style="background-color: #10b981; box-shadow: 0 0 8px #10b981;"></span>
-          <span id="auth-user-display" class="auth-email-text">Staff</span>
-          <button onclick="lockPortal()" class="auth-lock-btn" title="Lock Portal &amp; Clear Session" aria-label="Lock security gate">🔒 Lock</button>
-        </div>
+        <!-- Session Lock Button (only lock button, no email shown) -->
+        <button id="auth-lock-btn" class="ctrl-toggle-btn nav-lock-btn" onclick="lockPortal()" title="Lock Session &amp; Secure Portal" style="display: none;" aria-label="Lock security gate">
+          🔒 Lock
+        </button>
 
         <button id="pres-mode-btn" class="ctrl-toggle-btn" onclick="togglePresentationMode()" title="Toggle presentation slides mode with keyboard arrow keys" aria-label="Toggle full-screen presentation mode">
           📽️ Presentation
         </button>
-        <a href="#recommendation" class="btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.85rem;" onclick="playBeep(1000, 0.08)">
-          Pilot Recommendation
-        </a>
         <button id="nav-toggle" class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation menu" aria-expanded="false">
           ☰
         </button>
@@ -4643,10 +4636,14 @@
       if (!pwdInput) return;
       if (pwdInput.type === 'password') {
         pwdInput.type = 'text';
-        if (toggleBtn) toggleBtn.textContent = '🔒';
+        if (toggleBtn) {
+          toggleBtn.innerHTML = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg>';
+        }
       } else {
         pwdInput.type = 'password';
-        if (toggleBtn) toggleBtn.textContent = '👁️';
+        if (toggleBtn) {
+          toggleBtn.innerHTML = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>';
+        }
       }
     }
 
@@ -4734,10 +4731,9 @@
 
           // Save session
           sessionStorage.setItem('sealink_auth_session', 'authenticated_v1');
-          sessionStorage.setItem('sealink_user_email', email);
 
           setTimeout(() => {
-            unlockPortal(email);
+            unlockPortal();
           }, 450);
         } else {
           // Unified failure with ZERO clues about which field failed
@@ -4760,11 +4756,10 @@
       }
     }
 
-    function unlockPortal(email) {
+    function unlockPortal() {
       const gate = document.getElementById('security-gate-container');
       const root = document.getElementById('sealink-app-root');
-      const authBadge = document.getElementById('auth-status-badge');
-      const userDisplay = document.getElementById('auth-user-display');
+      const lockBtn = document.getElementById('auth-lock-btn');
 
       if (gate) {
         gate.classList.add('hidden-gate');
@@ -4779,10 +4774,8 @@
         root.style.opacity = '1';
       }
 
-      if (authBadge && userDisplay) {
-        userDisplay.textContent = email || 'b-Trac Staff';
-        userDisplay.title = email || 'Authorized b-Trac Account';
-        authBadge.style.display = 'inline-flex';
+      if (lockBtn) {
+        lockBtn.style.display = 'inline-flex';
       }
 
       // Initialize tactical map and animations
@@ -4798,19 +4791,18 @@
 
     function lockPortal() {
       sessionStorage.removeItem('sealink_auth_session');
-      sessionStorage.removeItem('sealink_user_email');
       window.location.reload();
     }
 
     function checkAuthSessionOnLoad() {
       const isAuth = sessionStorage.getItem('sealink_auth_session');
-      const savedEmail = sessionStorage.getItem('sealink_user_email');
 
       if (isAuth === 'authenticated_v1') {
-        unlockPortal(savedEmail || 'b-Trac Staff');
+        unlockPortal();
       } else {
         const root = document.getElementById('sealink-app-root');
         const gate = document.getElementById('security-gate-container');
+        const lockBtn = document.getElementById('auth-lock-btn');
         if (root) {
           root.style.display = 'none';
           root.style.opacity = '0';
@@ -4818,6 +4810,9 @@
         if (gate) {
           gate.style.display = 'flex';
           gate.classList.remove('hidden-gate');
+        }
+        if (lockBtn) {
+          lockBtn.style.display = 'none';
         }
         const emailInput = document.getElementById('gate-email');
         if (emailInput) setTimeout(() => emailInput.focus(), 300);
