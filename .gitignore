@@ -1,0 +1,46 @@
+# ==============================================================================
+# SeaLink - Git Ignore Configuration
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Confidential / Internal Concept Documents
+# ------------------------------------------------------------------------------
+# These files contain internal concept proposals marked CONFIDENTIAL.
+# Default: EXCLUDED to prevent accidental public disclosure on GitHub.
+# (To track these files in your repository, simply add a '#' before the lines below)
+B-Trac_SeaGuard_Concept_Paper.docx
+B-Trac_SeaGuard_Concept_Paper.pdf
+extracted_concept_paper.txt
+
+# ------------------------------------------------------------------------------
+# Operating System & File System Files
+# ------------------------------------------------------------------------------
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# ------------------------------------------------------------------------------
+# IDEs, Code Editors & Tooling
+# ------------------------------------------------------------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+
+# ------------------------------------------------------------------------------
+# Temporary Files & Logs
+# ------------------------------------------------------------------------------
+*.log
+*.tmp
+*.bak
+scratch/
